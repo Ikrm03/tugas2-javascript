@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugasd 2 Javascript</title>
+</head>
+
+<body>
+    <h2>Data Pegawai</h2>
+
+    <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Nama Pegawai</th>
+                <th>Umur</th>
+                <th>Jabatan</th>
+                <th>Status</th>
+                <th>Gaji Pokok</th>
+                <th>Tunjangan Jabatan</th>
+                <th>BPJS</th>
+                <th>Tunjangan Keluarga</th>
+                <th>Total Gaji</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td id="nama"></td>
+                <td id="umur"></td>
+                <td id="jabatan"></td>
+                <td id="status"></td>
+                <td id="gapok"></td>
+                <td id="tunjanganJabatan"></td>
+                <td id="bpjs"></td>
+                <td id="tunjanganKeluarga"></td>
+                <td id="totalGaji"></td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <th colspan="8">Total Gaji</th>
+                <th id="totalGajiFooter"></th>
+            </tr>
+        </tfoot>
+    </table>
+
+    <script>
+        
+        let nama = "Dodi Prayodi";
+        let umur = 25;
+        let jabatan = "Manajer";
+        let status = "Menikah";
+
+        let gapok = 0;
+
+        if (jabatan == "Manajer") {
+            gapok = 15000000;
+        } else if (jabatan == "Asisten Manajer") {
+            gapok = 10000000;
+        } else if (jabatan == "Staff") {
+            gapok = 5000000;
+        }
+
+        let tunjanganJabatan = gapok * 15 / 100;
+
+        let bpjs = gapok * 10 / 100;
+
+        let tunjanganKeluarga = (status == "Menikah") ? gapok * 20 / 100 : 0;
+
+        let totalGaji = gapok + tunjanganJabatan + bpjs + tunjanganKeluarga;
+
+        document.getElementById("nama").innerHTML = nama;
+        document.getElementById("umur").innerHTML = umur + " tahun";
+        document.getElementById("jabatan").innerHTML = jabatan;
+        document.getElementById("status").innerHTML = status;
+        document.getElementById("gapok").innerHTML = "Rp " + gapok.toLocaleString("id-ID");
+        document.getElementById("tunjanganJabatan").innerHTML = "Rp " + tunjanganJabatan.toLocaleString("id-ID");
+        document.getElementById("bpjs").innerHTML = "Rp " + bpjs.toLocaleString("id-ID");
+        document.getElementById("tunjanganKeluarga").innerHTML = "Rp " + tunjanganKeluarga.toLocaleString("id-ID");
+        document.getElementById("totalGaji").innerHTML = "Rp " + totalGaji.toLocaleString("id-ID");
+        document.getElementById("totalGajiFooter").innerHTML = "Rp " + totalGaji.toLocaleString("id-ID");
+    </script>
+</body>
+
+</html>
